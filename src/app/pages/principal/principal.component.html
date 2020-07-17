@@ -1,0 +1,17 @@
+<h1 class="display-4 animated fadeIn fast">Accesorios</h1>
+<hr>
+
+<div class="card-columns animated fadeIn body-accesorios">
+    <div class="card" *ngFor="let accesorio of accesorios; let i = index">
+        <img class="card-img-top" [src]="accesorio.img"   [alt]="accesorio.nombre">
+        <div class="card-body">
+          <h5 class="card-title">{{ accesorio.nombre }}</h5>
+          <!-- <p class="card-text"> {{ heroe.bio }} </p> -->
+          <p class="card-text"><small class="text-muted">{{ accesorio.precio }}</small></p>
+        
+          <!-- <button (click)="verDetalles(i)" class="btn btn-outline-primary btn-block">
+            Ver mas...
+          </button> -->
+        </div>
+    </div>
+</div>

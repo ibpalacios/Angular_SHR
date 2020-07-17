@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "SHR"
+    }
+  },
+  "defaultProject": "SHR",
+  "cli": {
+    "analytics": "03f89e3e-01f3-4148-aceb-5d591965eb39"
+  }
 }
