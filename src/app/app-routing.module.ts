@@ -5,13 +5,16 @@ import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ClientListComponent } from './pages/client-module/client-list/client-list.component';
+import { TrackingOrderListComponent } from './pages/order-tracking-module/tracking-order-list/tracking-order-list.component';
+
 
 
 const routes: Routes = [
   { path: 'principal', component: PrincipalComponent },
   { path: 'loginAdmin', component: LoginAdminComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'client-list', component: ClientListComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent},
+  { path: 'client-list', component: ClientListComponent},
+  { path: 'tracking-order-list', component: TrackingOrderListComponent},
   { path: '', pathMatch: 'full', redirectTo: 'principal' }
 ];
 
