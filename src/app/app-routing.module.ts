@@ -6,6 +6,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ClientListComponent } from './pages/client-module/client-list/client-list.component';
 import { TrackingOrderListComponent } from './pages/order-tracking-module/tracking-order-list/tracking-order-list.component';
+import { DeviceDeliveryListComponent } from './pages/device-module/device-delivery-list/device-delivery-list.component';
 
 
 
@@ -15,7 +16,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'client-list', component: ClientListComponent},
   { path: 'tracking-order-list', component: TrackingOrderListComponent},
+  { path: 'device-delivery-list', component: DeviceDeliveryListComponent},
   { path: '', pathMatch: 'full', redirectTo: 'principal' }
+  
 ];
 
 @NgModule({
