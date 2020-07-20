@@ -6,14 +6,23 @@
 
         <div class="col-md-12">
             <form>
-                <div class="row container mt-4">
-                    <div class="col-md-4 mt-2">
-                        <button class="btn btn-primary btn-block">Nuevo cliente</button>
-                    </div>
+                <div class="row container mt-4">       
                     <div class="col-md-8 mt-2">
                         <div>
-                            <input type="text" name="searchText" class="form-control form-control-sm btn-outline-secondary ops" placeholder=" Buscar...">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         </div>
+                    </div>
+
+                    <div class="col-md-4 mt-2">
+                        <form>
+                            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Filtrar por estatus">
+                           
+                            <datalist id="datalistOptions">
+                                <option value="En proceso">
+                                <option value="Reparado">
+                                <option value="No reparado">
+                            </datalist>
+                        </form>
                     </div>
                 </div>
 
