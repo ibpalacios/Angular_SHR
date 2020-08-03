@@ -8,6 +8,7 @@ import { ClientListComponent } from './pages/client-module/client-list/client-li
 import { TrackingOrderListComponent } from './pages/order-tracking-module/tracking-order-list/tracking-order-list.component';
 import { DeviceDeliveryListComponent } from './pages/device-module/device-delivery-list/device-delivery-list.component';
 import { OrderTrackingOperationComponent } from './pages/order-tracking-module/order-tracking-operation/order-tracking-operation.component';
+import { DeviceDeliveryOperationComponent } from './pages/device-module/device-delivery-operation/device-delivery-operation.component';
 
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'tracking-order-list', component: TrackingOrderListComponent},
   { path: 'order-tracking-operation', component: OrderTrackingOperationComponent},
   { path: 'device-delivery-list', component: DeviceDeliveryListComponent},
+  { path: 'device-delivery-operation', component: DeviceDeliveryOperationComponent},
   { path: '', pathMatch: 'full', redirectTo: 'principal' }
   
 ];
