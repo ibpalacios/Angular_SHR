@@ -7,13 +7,23 @@
         <div class="col-md-12">
             <form>
                 <div class="row container mt-4">
-                    <div class="col-md-4 mt-2">
-                        <button class="btn btn-primary btn-block">Nuevo cliente</button>
-                    </div>
                     <div class="col-md-8 mt-2">
                         <div>
-                            <input type="text" name="searchText" class="form-control form-control-sm btn-outline-secondary ops" placeholder=" Buscar...">
+                         
+                            <input  class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         </div>
+                    </div>
+                     <!-- se muestra el listado con busqueda -->
+                    <div class="col-md-4 mt-2">
+                        <form>
+                            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Filtrar por estatus">
+                           
+                            <datalist id="datalistOptions">
+                                <option value="En proceso">
+                                <option value="Reparado">
+                                <option value="No reparado">
+                            </datalist>
+                        </form>
                     </div>
                 </div>
 
@@ -22,32 +32,52 @@
                         <div class="row fadeIn">
                             <div class="col-12">
 
-                                <table class="table table-sm table-hover table-borderless">
-                                    <thead>
+                                <table class="table table-sm table-hover table-bordered">
+                                    <thead  class="thead-dark">
                                         <tr>
-                                            <th>NOMBRE DE CARRERA</th>
-                                            <th>ESTATUS</th>
-                                            <th>ACCIONES</th>
+                                            <th class="align-middle">NO. ORDEN</th>
+                                            <th class="align-middle">DUEÑO</th>
+                                            <th class="align-middle">ESTATUS</th>
+                                            <th class="align-middle">FECHA DE RECIBIDO</th>
+                                            <th class="align-middle">FECHA DE ENTREGA</th>
+                                            <th class="align-middle">DETALLES</th>
                                         </tr>
                                     </thead>
 
                                     <!-- SE MUESTRA CUANDO HAY REGISTROS -->
                                     <tbody>
                                         <tr>
-                                            <td>dato 1</td>
-                                            <td>dato 2</td>
-                                            <td>dato 3</td>
+                                            <td>1</td>
+                                            <td>Juan Verdoza</td>
+                                            <td>En proceso</td>
+                                            <td>15-07-20</td>
+                                            <td>30-07-20</td>                                            
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-xs btn-block">Más</button>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>dato 4</td>
-                                            <td>dato 5</td>
-                                            <td>dato 6</td>
+                                            <td>2</td>
+                                            <td>Jose Alfredo</td>
+                                            <td>Reparado</td>
+                                            <td>28-07-20</td>
+                                            <td>01-08-20</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-xs btn-block">Más</button>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>dato 7</td>
-                                            <td>dato 8</td>
-                                            <td>dato 9</td>
+                                            <td>3</td>
+                                            <td>Maria Luisa Ruiz</td>
+                                            <td>No reparado</td>
+                                            <td>30-07-20</td>
+                                            <td>05-08-20</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-xs btn-block">Más</button>
+                                            </td>
                                         </tr>
+                                        
+                                        
                                     </tbody>
 
                                     <!-- SE MUESTRA CUANDO NO HAY REGISTROS -->
