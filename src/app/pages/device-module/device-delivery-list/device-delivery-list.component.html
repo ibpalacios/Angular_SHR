@@ -1,4 +1,5 @@
 <h2 class="text-center text-dark m-4">Lista de retiro de dispositivos</h2>
+<h5 class="text-center text-dark m-4">Dispositivos retirados</h5>
 <hr>
 
 <div class="card">
@@ -31,33 +32,54 @@
                         <div class="row fadeIn">
                             <div class="col-12">
 
-                                <table class="table table-sm table-hover table-borderless">
-                                    <thead>
+                                <table class="table table-sm table-hover table-bordered">
+                                    <thead  class="thead-dark">
                                         <tr>
-                                            <th>NOMBRE DE CARRERA</th>
-                                            <th>ESTATUS</th>
-                                            <th>ACCIONES</th>
+                                            <th class="align-middle">NO. ORDEN</th>
+                                            <th class="align-middle">DUEÑO</th>
+                                            <th class="align-middle">ESTATUS</th>
+                                            <th class="align-middle">RETIRADO</th>
+                                            <th class="align-middle">POR</th>
+                                            <th class="align-middle">DETALLES</th>
                                         </tr>
                                     </thead>
 
                                     <!-- SE MUESTRA CUANDO HAY REGISTROS -->
                                     <tbody>
                                         <tr>
-                                            <td>dato 1</td>
-                                            <td>dato 2</td>
-                                            <td>dato 3</td>
+                                            <td>1</td>
+                                            <td>Carlos Velasco</td>
+                                            <td>Reparado</td>
+                                            <td>15-07-20</td>
+                                            <td>Carlos Velasco</td>                                            
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-xs btn-block">Más</button>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>dato 4</td>
-                                            <td>dato 5</td>
-                                            <td>dato 6</td>
+                                            <td>2</td>
+                                            <td>Alondra Avelar</td>
+                                            <td>Reparado</td>
+                                            <td>21-01-20</td>
+                                            <td>Viridiana Gallegos</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-xs btn-block">Más</button>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>dato 7</td>
-                                            <td>dato 8</td>
-                                            <td>dato 9</td>
+                                            <td>3</td>
+                                            <td>Denisse Franco</td>
+                                            <td>Reparado</td>
+                                            <td>30-07-20</td>
+                                            <td>José Carlos Loera</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-xs btn-block">Más</button>
+                                            </td>
                                         </tr>
+                                        
+                                        
                                     </tbody>
+
 
                                     <!-- SE MUESTRA CUANDO NO HAY REGISTROS -->
                                     <!-- <tbody *ngIf="careers.length &lt;= 0 && !cargando">
