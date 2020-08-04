@@ -1,1 +1,97 @@
-<p>order-edit works!</p>
+<h2 class="text-center text-dark m-4">Orden de reparación</h2>
+<h5 class="text-center text-dark m-4">Editar orden</h5>
+<hr>
+
+<div class="card">
+    <div class="row">
+
+        <div class="col-md-12">
+            <form>
+                <div class="row container mt-4">
+
+                    <div class="col-md-4 mt-2">
+                        <label>No. Orden</label>
+                        <div>
+                            <input  class="form-control mr-sm-2" type="search" >
+                        </div>
+                    </div>
+
+                     <!-- se muestra el listado con busqueda -->
+                     
+                    <div class="col-md-8 mt-2">
+                        <form>
+                            <label>Dueño</label>
+                            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Name">
+                           
+                            <datalist id="datalistOptions">
+                                <option value="Nombre">
+                            </datalist>
+                        </form>
+                    </div>
+
+                    <div class="col-md-4 mt-2">
+                        <label>Dispositivo</label>
+                        <input type="dispositivo" class="form-control" id="inputDispositivo">
+                    </div>
+
+                    <div class="col-md-4 mt-2">
+                        <label>Modelo</label>
+                        <input type="modelo" class="form-control" id="inputModelo">
+                    </div>
+
+                    <div class="col-md-4 mt-2">
+                        <label>Color</label>
+                        <input type="colors" class="form-control" id="inputColor">
+                    </div>
+
+                    <div class="col-md-4 mt-2">
+                        <label>Fecha de atención</label>
+                        <input type="date" name="bday" max="3000-12-31" 
+                               min="1000-01-01" class="form-control">
+                    </div>
+                    
+                    <div class="col-md-4 mt-2">
+                        <label>IMEI</label>
+                        <input type="Imei" class="form-control" id="inputImei">
+                    </div>
+
+                    <div class="col-md-4 mt-2">
+                        <label> $ Monto</label>
+                        <input type="Monto" class="form-control" id="inputMonto">
+                    </div>                                                        
+
+                    <div class="col-md-12 mt-2">
+                        <label>Trabajo a realizar</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>                 
+                </div>
+
+                <div class="container mt-2">
+                    <div class="row">
+                        <div class="mx-auto">
+                      
+                                <button  type="button" class="btn btn-primary btn-lg justify-content-start">Registrar</button>
+                         
+                                <button type="button" class="btn btn-primary btn-lg justify-content-end" style="margin-left:20px">Volver</button>                        
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row container mt-4">
+                    <div class="container small">
+                        <div class="row fadeIn">
+                            <div class="col-12">
+
+                                
+                                <!-- <div class="mt-4 float-right fadeIn ">
+                                    <pagination-controls (pageChange)="pageActual=$event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

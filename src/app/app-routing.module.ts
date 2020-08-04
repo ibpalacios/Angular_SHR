@@ -8,7 +8,8 @@ import { ClientListComponent } from './pages/client-module/client-list/client-li
 import { TrackingOrderListComponent } from './pages/order-tracking-module/tracking-order-list/tracking-order-list.component';
 import { DeviceDeliveryListComponent } from './pages/device-module/device-delivery-list/device-delivery-list.component';
 import { DeviceDeliveryOperationComponent } from './pages/device-module/device-delivery-operation/device-delivery-operation.component';
-
+import { OrderRegistComponent } from './pages/order-module/order-regist/order-regist.component';
+import { OrderEditComponent } from './pages/order-module/order-edit/order-edit.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: 'tracking-order-list', component: TrackingOrderListComponent},
   { path: 'device-delivery-list', component: DeviceDeliveryListComponent},
   { path: 'device-delivery-operation', component: DeviceDeliveryOperationComponent},
+  { path: 'order-regist', component: OrderRegistComponent},
+  { path: 'order-edit', component: OrderEditComponent},
   { path: '', pathMatch: 'full', redirectTo: 'principal' }
   
 ];
