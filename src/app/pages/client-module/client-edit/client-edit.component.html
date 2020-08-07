@@ -1,4 +1,66 @@
-<p>client-edit works!</p>
+<h2 class="text-center text-dark m-4">Control de Cliente</h2>
+<h5 class="text-center text-dark m-4">Editar cliente</h5>
+<hr>
 
-<h5>prubea de cambios 2</h5>
+<div class="card">
+    <div class="row">
 
+        <div class="col-md-12">
+            <form>
+                <div class="row container mt-1">
+                    <div class="col-md-12 mt-2">
+                        <label>Nombre completo</label>
+                        <div>
+                            <input name="searchName" class="form-control mr-sm-2" type="search" >
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-2">
+                        <label>Dirección</label>
+                        <div>
+                            <input name="searchDireccion" class="form-control mr-sm-2" type="search" >
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-2">
+                        <label>Correo</label>
+                        <div>
+                            <input name="searchCorreo" class="form-control mr-sm-2" type="search" >
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-2">
+                        <label>Telefono</label>
+                        <div>
+                            <input name="searchTelefono" class="form-control mr-sm-2" type="search" >
+                        </div>
+                    </div>
+                     <!-- se muestra el listado con busqueda -->
+                     
+                </div>
+
+                <div class="container mt-2">
+                    <div class="row">
+                        <div class="col-6">          
+                                <button type="button " class="btn btn-lg btn-primary float-right">Editar</button>                               
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="btn btn-lg btn-primary float-left">Volver</button>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="row container mt-4">
+                    <div class="container small">
+                        <div class="row fadeIn">
+                            <div class="col-12">
+
+                                
+                                <!-- <div class="mt-4 float-right fadeIn ">
+                                    <pagination-controls (pageChange)="pageActual=$event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
