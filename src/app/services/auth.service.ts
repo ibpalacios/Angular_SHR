@@ -12,13 +12,14 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   // readonly URL = 'https://localhost:44367/api/Login';
-  readonly URL = 'https://localhost:44367/api/Login';
+  // readonly URL = 'https://localhost:44367/api/Login';
+  readonly URL = 'http://localhost:3000/api/admin';
   
   
   constructor(private http: HttpClient, private router: Router) { }
 
   login(admin: AdministratorModel){
-    return this.http.post(`${this.URL}/auth`, admin).toPromise();
+    return this.http.post(`${this.URL}/iniciarSesion`, admin).toPromise();
   }
 
   loggedIn(){

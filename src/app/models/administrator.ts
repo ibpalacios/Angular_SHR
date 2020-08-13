@@ -1,5 +1,5 @@
 export class AdministratorModel{
-    Id: number;
-    User: string;
-    Password: string;
+    _id: string
+    strUser: string;
+    strPass: string;
 }

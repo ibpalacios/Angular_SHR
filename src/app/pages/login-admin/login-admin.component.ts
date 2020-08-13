@@ -29,21 +29,26 @@ export class LoginAdminComponent implements OnInit {
   login(forma: NgForm){
     //console.log(this.admin);
     this.btnIngresar = true;
-    this.auth.login(this.admin).then(res => {
+    this.auth.login(this.admin).then((res: any) => {
       console.log(res);
-      let data = JSON.stringify(res);
-      let dataJson = JSON.parse(data);
 
-      localStorage.setItem('token', dataJson.data.token);
+      localStorage.setItem('token', res.token);
 
-      if(dataJson.data.token){
+      if(res.token){
         this.btnIngresar = false;
 
         this.router.navigate(['/dashboard']);
 
         Swal.fire({
-          title: `Hola ${dataJson.data.user} bienvenido`,
+          title: `Hola ${res.cnt.strUser} bienvenido`,
           icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }else{
+        Swal.fire({
+          title: res.error.msg,
+          icon: 'error',
           showConfirmButton: false,
           timer: 1500
         });
@@ -52,7 +57,7 @@ export class LoginAdminComponent implements OnInit {
     }).catch(err => {
 
       if (err.status !== 0) {
-        this.errorType = err.error.message;
+        this.errorType = err.err;
       }else{
         //Este error puede surgir si el servidor no esta ejecutandose o por un mal consumo o llamado de la API.
         this.errorType = `ERROR_DE_CONEXIÓN: ${err.name}, Error al conectar con el servidor`;

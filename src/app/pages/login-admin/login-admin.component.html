@@ -5,12 +5,13 @@
                 <h4 class="card-title text-center pb-3">Iniciar Sesión</h4>
                 <form (ngSubmit)="login(forma)" #forma="ngForm" class="form-signin">
                     <div class="form-label-group">
-                        <input [(ngModel)]="admin.User" name="User" type="text" id="inputUser" class="form-control" placeholder="Ingresa tu usuario" required>
+                        <input [(ngModel)]="admin.strUser" name="strUser" type="text" id="inputUser" class="form-control" placeholder="Ingresa tu usuario" required>
                         <label for="inputUser">Usuario</label>
                     </div>
 
                     <div class="form-label-group">
-                        <input [(ngModel)]="admin.Password" name="password" type="Password" id="inputPass" class="form-control" placeholder="Ingresa tu contraseña" required>
+                        <input [(ngModel)]="admin.strPass" name="strPass
+                        " type="Password" id="inputPass" class="form-control" placeholder="Ingresa tu contraseña" required>
                         <label for="inputPass">Password</label>
                     </div>
 
