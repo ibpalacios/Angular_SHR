@@ -57,7 +57,7 @@ export class LoginAdminComponent implements OnInit {
     }).catch(err => {
 
       if (err.status !== 0) {
-        this.errorType = err.err;
+        this.errorType = err.error.msg;
       }else{
         //Este error puede surgir si el servidor no esta ejecutandose o por un mal consumo o llamado de la API.
         this.errorType = `ERROR_DE_CONEXIÓN: ${err.name}, Error al conectar con el servidor`;

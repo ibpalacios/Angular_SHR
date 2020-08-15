@@ -1,7 +1,8 @@
 export class CustomerModel{
-    Id: number;
-    FullName: string;
-    Address: string;
-    Email: string;
-    Telephone: string;
+    _id?: string;
+    idRegistrationStatus: string;
+    strFullName: string;
+    strAddress: string;
+    strEmail: string;
+    strTelephone: string;
 }

@@ -8,43 +8,61 @@
             <div class="row container">
         
                 <div class="col-md-12">
-                    <form>
+                    <form (ngSubmit)="saveCutomer(forma)" #forma="ngForm">
                         <div class="row mt-1 mb-2 ml-2">
                             <div class="col-md-12 mt-2">
                                 <label>Nombre completo</label>
                                 <div>
-                                    <input name="Name" class="form-control" type="search" >
+                                    <input [class.is-invalid]="strFullName.invalid && strFullName.touched" class="form-control form-control-sm" type="text " name="strFullName" [(ngModel)]="objCustomer.strFullName" required #strFullName="ngModel">
+                                    <div class="invalid-feedback" *ngIf="strFullName.errors?.required">
+                                        <small>
+                                            Es necesario ingresar un nombre.
+                                        </small>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 mt-2">
                                 <label>Dirección</label>
                                 <div>
-                                    <input name="Direccion" class="form-control" type="search" >
+                                    <input input [class.is-invalid]="strAddress.invalid && strAddress.touched" class="form-control form-control-sm" type="text " name="strAddress" [(ngModel)]="objCustomer.strAddress" required #strAddress="ngModel">
+                                    <div class="invalid-feedback" *ngIf="strAddress.errors?.required">
+                                        <small>
+                                            Es necesario ingresar una direccion.
+                                        </small>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 mt-2">
                                 <label>Correo</label>
                                 <div>
-                                    <input name="Correo" class="form-control" type="search" >
+                                    <input [class.is-invalid]="strEmail.invalid && strEmail.touched" class="form-control form-control-sm" type="text " name="strEmail" [(ngModel)]="objCustomer.strEmail" required #strEmail="ngModel">   
+                                    <div class="invalid-feedback" *ngIf="strEmail.errors?.required">
+                                        <small>
+                                            Es necesario ingresar un correo electronico.
+                                        </small>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 mt-2">
                                 <label>Telefono</label>
                                 <div>
-                                    <input  name="Telefono" class="form-control" type="search" >
+                                    <input [class.is-invalid]="strTelephone.invalid && strTelephone.touched" class="form-control form-control-sm" type="text " name="strTelephone" [(ngModel)]="objCustomer.strTelephone" required #strTelephone="ngModel">
+                                    <div class="invalid-feedback" *ngIf="strTelephone.errors?.required">
+                                        <small>
+                                            Es necesario ingresar un número de teléfono.
+                                        </small>
+                                    </div>
                                 </div>
-                            </div>
-                             <!-- se muestra el listado con busqueda -->
-                             
+                            </div>                          
                         </div>
         
                         <div class="container ml-2 mb-5">
                             <div class="row">
                                 <div class="col-12 col-md-6 mt-1">          
-                                        <button type="sumbit" class="btn btn-sm btn-block btn-primary float-right">Registrar</button>                               
+                                        <button [disabled]="forma.invalid" type="sumbit" class="btn btn-sm btn-block btn-primary float-right">Registrarr</button>                               
                                 </div>
                                 <div class="col-12 col-md-6 mt-1">
-                                    <button type="sumbit" class="btn btn-sm btn-block btn-primary float-left">Volver</button>
+                                    <button [routerLink]="['/client-list']" type="sumbit" class="btn btn-sm btn-block btn-danger float-left">Volver</button>
                                 </div>
                             </div>
                         </div>

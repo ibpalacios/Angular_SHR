@@ -13,7 +13,7 @@ import { OrderRegistComponent } from './pages/order-module/order-regist/order-re
 import { OrderEditComponent } from './pages/order-module/order-edit/order-edit.component';
 import { ClientEditComponent } from './pages/client-module/client-edit/client-edit.component';
 import { ClientRegistComponent } from './pages/client-module/client-regist/client-regist.component';
-import { userInfo } from 'os';
+import { OrderListComponent } from './pages/order-module/order-list/order-list.component';
 
 
 
@@ -22,13 +22,14 @@ const routes: Routes = [
   { path: 'loginAdmin', component: LoginAdminComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'client-list', component: ClientListComponent, canActivate: [AuthGuard]},
+  { path: 'order-list', component: OrderListComponent, canActivate: [AuthGuard]},
   { path: 'tracking-order-list', component: TrackingOrderListComponent, canActivate: [AuthGuard]},
   { path: 'order-tracking-operation', component: OrderTrackingOperationComponent, canActivate: [AuthGuard]},
   { path: 'device-delivery-list', component: DeviceDeliveryListComponent, canActivate: [AuthGuard]},
   { path: 'device-delivery-operation', component: DeviceDeliveryOperationComponent, canActivate: [AuthGuard]},
   { path: 'order-regist', component: OrderRegistComponent, canActivate: [AuthGuard]},
   { path: 'order-edit', component: OrderEditComponent, canActivate: [AuthGuard]},
-   { path: 'client-edit', component: ClientEditComponent, canActivate: [AuthGuard]},
+   { path: 'client-edit/:id', component: ClientEditComponent, canActivate: [AuthGuard]},
   { path: 'client-regist', component: ClientRegistComponent, canActivate: [AuthGuard]},
   { path: '', pathMatch: 'full', redirectTo: 'principal' }
   

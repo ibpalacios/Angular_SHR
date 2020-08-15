@@ -1,0 +1,17 @@
+export class OrderrModel{
+    _id?: string;
+    idCustomer: string;
+    idRegistrationStatus: string;
+    idRepairStatus: string;
+    idRetirementStatus: string;
+    strDevice: string;
+    strModel: string;
+    strImei: string;
+    strColor: string;
+    strAmountPayable: string;
+    strStatusComment: string;
+    strWorkToDo: string;
+    strRetirementBy: string;
+    dteRetirementDate: string;
+
+}

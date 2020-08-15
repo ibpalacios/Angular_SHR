@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AdministratorModel } from '../models/administrator';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment.prod';
 
 
 
@@ -11,15 +12,12 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  // readonly URL = 'https://localhost:44367/api/Login';
-  // readonly URL = 'https://localhost:44367/api/Login';
-  readonly URL = 'http://localhost:3000/api/admin';
-  
+  readonly URL = environment.URL;
   
   constructor(private http: HttpClient, private router: Router) { }
 
   login(admin: AdministratorModel){
-    return this.http.post(`${this.URL}/iniciarSesion`, admin).toPromise();
+    return this.http.post(`${this.URL}/admin/iniciarSesion`, admin).toPromise();
   }
 
   loggedIn(){

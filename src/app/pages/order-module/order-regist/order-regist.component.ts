@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-order-regist',
@@ -12,4 +14,7 @@ export class OrderRegistComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  saveOrder(form: NgForm){
+
+  }
 }

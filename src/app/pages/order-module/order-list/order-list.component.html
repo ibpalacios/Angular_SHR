@@ -1,1 +1,60 @@
-<p>order-list works!</p>
+<h2 class="text-center text-dark m-4">Lista de Ordenes</h2>
+<hr>
+
+<div class="card">
+    <div class="row">
+
+        <div class="col-md-12">
+            <form>
+                <div class="row container mt-4">
+                    <div class="col-md-3 mt-2">
+                        <button [routerLink]="['/order-regist']" class="btn btn-primary btn-block btn-sm">Nueva orden</button>
+                    </div>
+                    <div class="col-md-9 mt-2">
+                        <div>
+                            <input [(ngModel)]="searchText" type="text" name="searchText" class="form-control form-control-sm btn-outline-secondary ops" placeholder=" Buscar...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row container mt-4">
+                    <div class="container small">
+                        <div class="row fadeIn">
+                            <div class="col-12">
+
+                                <table class="table table-sm table-hover table-responsive-sm table-borderless table-responsive-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>CLIENTE</th>
+                                            <th>FECHA DE ATENCIÓN</th>
+                                            <th>DISPOSITIVO</th>
+                                            <th>MODELO</th>
+                                            <th>IMEI</th>
+                                            <th>EDITAR</th>
+                                            <th>ELIMINAR</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let order of arrOrder | filter:searchText">
+                                            <td>{{order.idCustomer.strFullName}}</td>
+                                            <td>{{order.dteRetirementDate | date}}</td>
+                                            <td>{{order.strDevice}}</td>
+                                            <td>{{order.strModel}}</td>
+                                            <td>{{order.strImei}}</td>
+                                            <td>
+                                                <button [routerLink]="['/order-edit', order._id]" type="submit" class="btn btn-sm btn-success">Editar</button>
+                                            </td>
+                                            <td>
+                                                <button (click)="deleteOrder(order._id)" type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
