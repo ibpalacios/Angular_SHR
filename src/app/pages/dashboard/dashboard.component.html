@@ -14,7 +14,7 @@
 </div>
 
 <div class="col-md-2">
-  <img src="assets/resource/img/orden.png" class="card-img border-1" alt="Registro de orden">
+  <a [routerLink]="['/order-list']"><img src="assets/resource/img/orden.png" class="card-img border-1" alt="Registro de orden"></a>
 </div>
 <div class="col-md-4">
   <div class="card-body">
@@ -27,7 +27,7 @@
 
 <div class="row align-items-center">
   <div class="col-md-2">
-    <img src="assets/resource/img/seguimiento.png" class="card-img" alt="Seguimiento de dispositivo">
+    <a [routerLink]="['/tracking-order-list']"><img src="assets/resource/img/seguimiento.png" class="card-img" alt="Seguimiento de dispositivo"></a>
   </div>
   <div class="col-md-4">
     <div class="card-body">
@@ -38,7 +38,7 @@
   </div>
 
   <div class="col-md-2">
-    <img src="assets/resource/img/retiro.png" class="card-img" alt="Retiro de dispositivo">
+    <a [routerLink]="['/device-delivery-list']"><img src="assets/resource/img/retiro.png" class="card-img" alt="Retiro de dispositivo"></a>
   </div>
   <div class="col-md-4">
     <div class="card-body">

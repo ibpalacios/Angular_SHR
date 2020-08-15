@@ -1,4 +1,4 @@
-<h2 class="text-center text-dark m-4">Lista de clientes test</h2>
+<h2 class="text-center text-dark m-4">Lista de Clientes</h2>
 <hr>
 
 <div class="card">
@@ -7,12 +7,12 @@
         <div class="col-md-12">
             <form>
                 <div class="row container mt-4">
-                    <div class="col-md-4 mt-2">
-                        <button class="btn btn-primary btn-block">Nuevo cliente</button>
+                    <div class="col-md-3 mt-2">
+                        <button [routerLink]="['/client-regist']" class="btn btn-primary btn-block btn-sm">Nuevo cliente</button>
                     </div>
-                    <div class="col-md-8 mt-2">
+                    <div class="col-md-9 mt-2">
                         <div>
-                            <input type="text" name="searchText" class="form-control form-control-sm btn-outline-secondary ops" placeholder=" Buscar...">
+                            <input [(ngModel)]="searchText" type="text" name="searchText" class="form-control form-control-sm btn-outline-secondary ops" placeholder=" Buscar...">
                         </div>
                     </div>
                 </div>
@@ -22,48 +22,34 @@
                         <div class="row fadeIn">
                             <div class="col-12">
 
-                                <table class="table table-sm table-hover table-borderless">
+                                <table class="table table-sm table-hover table-responsive-sm table-borderless table-responsive-sm">
                                     <thead>
                                         <tr>
-                                            <th>NOMBRE DE CARRERA</th>
-                                            <th>ESTATUS</th>
-                                            <th>ACCIONES</th>
+                                            <th>NOMBRE</th>
+                                            <th>DIRECCIÓN</th>
+                                            <th>CORREO</th>
+                                            <th>TELÉFONO</th>
+                                            <th>ACCIÓN</th>
+                                            <th>ACCIÓN</th>
                                         </tr>
                                     </thead>
 
                                     <!-- SE MUESTRA CUANDO HAY REGISTROS -->
                                     <tbody>
-                                        <tr>
-                                            <td>dato 1</td>
-                                            <td>dato 2</td>
-                                            <td>dato 3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>dato 4</td>
-                                            <td>dato 5</td>
-                                            <td>dato 6</td>
-                                        </tr>
-                                        <tr>
-                                            <td>dato 7</td>
-                                            <td>dato 8</td>
-                                            <td>dato 9</td>
-                                        </tr>
-                                    </tbody>
-
-                                    <!-- SE MUESTRA CUANDO NO HAY REGISTROS -->
-                                    <!-- <tbody *ngIf="careers.length &lt;= 0 && !cargando">
-                                        <tr>
-                                            <td colspan="14">
-                                                <div class="alert-dismissible text-center" style="padding: .75rem 1.25rem;">
-                                                    <h5 style="height: 100%;width: 100%;"><strong><i class="fa fa-frown-o" aria-hidden="true"></i> ¡NO HAY REGISTROS PARA MOSTRAR!</strong></h5>
-                                                </div>
+                                        <tr *ngFor="let customer of arrCustomers | filter:searchText">
+                                            <td>{{customer.strFullName}}</td>
+                                            <td>{{customer.strAddress}}</td>
+                                            <td>{{customer.strEmail}}</td>
+                                            <td>{{customer.strTelephone}}</td>
+                                            <td>
+                                                <button [routerLink]="['/client-edit', customer._id]" type="submit" class="btn btn-sm btn-success">Editar</button>
+                                            </td>
+                                            <td>
+                                                <button (click)="deleteCustomer(customer._id)" type="submit" class="btn btn-sm btn-danger">Eliminar</button>
                                             </td>
                                         </tr>
-                                    </tbody> -->
+                                    </tbody>
                                 </table>
-                                <!-- <div class="mt-4 float-right fadeIn ">
-                                    <pagination-controls (pageChange)="pageActual=$event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
-                                </div> -->
                             </div>
                         </div>
                     </div>
