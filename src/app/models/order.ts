@@ -1,4 +1,4 @@
-export class OrderrModel{
+export class OrderModel{
     _id?: string;
     idCustomer: string;
     idRegistrationStatus: string;
@@ -12,6 +12,7 @@ export class OrderrModel{
     strStatusComment: string;
     strWorkToDo: string;
     strRetirementBy: string;
-    dteRetirementDate: string;
+    dteDateOfAttention: Date;
+    dteRetirementDate: Date;
 
 }

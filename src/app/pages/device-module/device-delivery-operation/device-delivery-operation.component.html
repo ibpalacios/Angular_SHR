@@ -1,140 +1,118 @@
-<h2 class="text-center text-dark m-4">Seguimiento de reparación</h2>
-<h5 class="text-center text-dark m-4">Registro de estatus</h5>
+<h2 class="text-center text-dark m-4">Dispositivos Retirados</h2>
+<h5 class="text-center text-dark m-4">Registro de Dispositivos Retirados</h5>
 <hr>
 
-<div class="card">
-    <div class="row">
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="row">
 
-        <div class="col-md-12">
-            <form>
-                <div class="row container mt-4">
+                <div class="col-md-12">
+                    <form (ngSubmit)="updateOrder(forma)" #forma="ngForm">
+                        <div class="row container ml-1 mt-4">
+         
+                            <div class="col-md-12 mt-2">
+                                <label>Cliente</label>
+                                <select class="custom-select selectpicker form-control form-control-sm" data-live-search="true" type="text" title="Seleccione Cliente" name="idCustomer" [(ngModel)]="objOrder.idCustomer" required #idCustomer="ngModel" disabled>
+                                    <option *ngFor="let customer of arrCustomers"  [(ngValue)]="customer._id" > {{customer.strFullName}} </option>
+                                </select>
+                            </div>
 
-                    <div class="col-md-4 mt-2">
-                        <label>No. Orden</label>
-                        <div>
-                            <input  class="form-control mr-sm-2" type="search" >
+                            <div class="col-md-4 mt-2">
+                                <label>Dispositivo</label>
+                                <input class="form-control form-control-sm" type="text " name="strDevice" [(ngModel)]="objOrder.strDevice" required #strDevice="ngModel" disabled>
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label>Modelo</label>
+                                <input class="form-control form-control-sm" type="text " name="strModel" [(ngModel)]="objOrder.strModel" required #strModel="ngModel" disabled>
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label>Color</label>
+                                <input class="form-control form-control-sm" type="text " name="strColor" [(ngModel)]="objOrder.strColor" required #strColor="ngModel" disabled>
+
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label>Fecha de atención</label>
+                                <input class="form-control form-control-sm" type="text" name="dteDateOfAttention" [(ngModel)]="objOrder.dteDateOfAttention" required #dteDateOfAttention="ngModel" disabled>
+                            </div>
+                           
+                            <div class="col-md-4 mt-2">
+                                <label>IMEI</label>
+                                <input [class.is-invalid]="strImei.invalid && strImei.touched" class="form-control form-control-sm" type="text " name="strImei" [(ngModel)]="objOrder.strImei" required #strImei="ngModel" disabled>
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label> $ Monto</label>
+                                <input class="form-control form-control-sm" type="text " name="strAmountPayable" [(ngModel)]="objOrder.strAmountPayable" required #strAmountPayable="ngModel" disabled>
+                            </div> 
+                            
+                            <div class="col-4 mt-2">
+                                <label>Estatus de reparación</label>
+                                <select [class.is-invalid]="idRepairStatus.invalid && idRepairStatus.touched" class="custom-select selectpicker form-control form-control-sm" type="text" title="Estatus" name="idRepairStatus" [(ngModel)]="objOrder.idRepairStatus" #idRepairStatus="ngModel" required disabled>
+                                    <option *ngFor="let estatus of arrRepairStatus"  [ngValue]="estatus._id" > {{estatus.strStatus}} </option>
+                                </select>
+                            </div>
+
+                            <div class="col-4 mt-2">
+                                <label>¿Retirado?</label>
+                                <select [class.is-invalid]="idRetirementStatus.invalid && idRetirementStatus.touched" class="custom-select selectpicker form-control form-control-sm" type="text" title="Estatus" name="idRetirementStatus" [(ngModel)]="objOrder.idRetirementStatus" #idRetirementStatus="ngModel" required>
+                                    <option *ngFor="let retirado of arrRetirementStatus"  [ngValue]="retirado._id" > {{retirado.strStatus}} </option>
+                                </select>
+                            </div>
+                            <div class="invalid-feedback" *ngIf="idRetirementStatus.errors?.required">
+                                <small>
+                                    Por favor, seleccione una opción.
+                                </small>
+                            </div>
+
+                            <div class="col-4 mt-2">
+                                <label>Recogido Por:</label>
+                                <input [class.is-invalid]="strRetirementBy.invalid && strRetirementBy.touched" class="form-control form-control-sm" type="text " name="strRetirementBy" [(ngModel)]="objOrder.strRetirementBy" required #strRetirementBy="ngModel">
+                            </div>
+                            <div class="invalid-feedback" *ngIf="strRetirementBy.errors?.required">
+                                <small>
+                                    Por favor, Ingrese quien recogio el dispositivo.
+                                </small>
+                            </div>
+                            
+                            <div class="col-md-6 mt-2">
+                                <label>Trabajo a realizar</label>
+                                <textarea [class.is-invalid]="strWorkToDo.invalid && strWorkToDo.touched" class="form-control form-control-sm" rows="3" placeholder="Observaciones" name="strWorkToDo" [(ngModel)]="objOrder.strWorkToDo" required #strWorkToDo="ngModel" disabled></textarea>
+                                <div class="invalid-feedback" *ngIf="strWorkToDo.errors?.required">
+                                    <small>
+                                        Por favor, ingrese la descripción del problema del dispositivo.
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <label>Trabajo a realizar</label>
+                                <textarea [class.is-invalid]="strStatusComment.invalid && strStatusComment.touched" class="form-control form-control-sm" rows="3" placeholder="Observaciones" name="strStatusComment" [(ngModel)]="objOrder.strStatusComment" required #strStatusComment="ngModel" disabled></textarea>
+                                <div class="invalid-feedback" *ngIf="strStatusComment.errors?.required">
+                                    <small>
+                                        Por favor, ingrese la descripción del problema del dispositivo.
+                                    </small>
+                                </div>
+                            </div> 
+                            
                         </div>
-                    </div>
-
-                     <!-- se muestra el listado con busqueda -->
-                     
-                    <div class="col-md-8 mt-2">
-                        <form>
-                            <label>Dueño</label>
-                            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Name">
-                           
-                            <datalist id="datalistOptions">
-                                <option value="Nombre">
-                            </datalist>
-                        </form>
-                    </div>
-
-                    <div class="col-md-4 mt-2">
-                        <label>Dispositivo</label>
-                        <input type="dispositivo" class="form-control" id="inputDispositivo">
-                    </div>
-
-                    <div class="col-md-4 mt-2">
-                        <label>Modelo</label>
-                        <input type="modelo" class="form-control" id="inputModelo">
-                    </div>
-
-                    <div class="col-md-4 mt-2">
-                        <label>Color</label>
-                        <input type="colors" class="form-control" id="inputColor">
-                    </div>
-
-                    <div class="col-md-4 mt-2">
-                        <label>Fecha de atención</label>
-                        <input type="date" name="bday" max="3000-12-31" 
-                               min="1000-01-01" class="form-control">
-                    </div>
-                    
-                    <div class="col-md-4 mt-2">
-                        <label>IMEI</label>
-                        <input type="Imei" class="form-control" id="inputImei">
-                    </div>
-
-                    <div class="col-md-4 mt-2">
-                        <label> $ Monto</label>
-                        <input type="Monto" class="form-control" id="inputMonto">
-                    </div>                   
-
-                    <div class="col-md-4 mt-2">
-                        <form>
-                            <label> </label>
-                            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Estatus">
-                           
-                            <datalist id="datalistOptions">
-                                <option value="Nombre">
-                            </datalist>
-                        </form>
-                    </div>
-
-                    <div class="col-md-4 mt-2">
-                        <form>
-                            <label> </label>
-                            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="¿Retirado?">
-                           
-                            <datalist id="datalistOptions">
-                                <option value="Nombre">
-                            </datalist>
-                        </form>
-                    </div>
-
-                    <div class="col-md-4 mt-2">
-                        <label> </label>
-                        <div>
-                            <input  class="form-control mr-sm-2" type="search" placeholder="¿Quién lo recogió?" >
-                        </div>
-                    </div>
-
-                    
-
-                    <div class="col-md-6 mt-2">
-                        <label>Trabajo a realizar</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="col-md-6 mt-2">
-                        <label>Comentarios</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                 
-
-                </div>
-
-                <div class="container mt-2">
-                    <div class="row">
-                        <div class="mx-auto">
-                      
-                                <button  type="button" class="btn btn-primary btn-lg justify-content-start">Registrar</button>
-                                
-                           
-                                <button type="button" class="btn btn-primary btn-lg justify-content-end" style="margin-left:20px">Volver</button>
                         
-                        </div>
-                    </div>
-                </div>
-
-             
-               
-               
-               
-
-                <div class="row container mt-4">
-                    <div class="container small">
-                        <div class="row fadeIn">
-                            <div class="col-12">
-
-                                
-                                <!-- <div class="mt-4 float-right fadeIn ">
-                                    <pagination-controls (pageChange)="pageActual=$event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
-                                </div> -->
+                        <div class="container ml-2 mt-2 mb-5">
+                            <div class="row">
+                                <div class="col-12 col-md-6 mt-1">          
+                                    <button [disabled]="forma.invalid" type="sumbit" class="btn btn-sm btn-block btn-primary float-right">Registrar</button>                               
+                                </div>
+                                <div class="col-12 col-md-6 mt-1">
+                                    <button [routerLink]="['/device-delivery-list']" type="sumbit" class="btn btn-sm btn-block btn-danger float-left">Volver</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
