@@ -37,7 +37,7 @@
                                     <tbody>
                                         <tr *ngFor="let order of arrOrder | filter:searchText">
                                             <td>{{order.idCustomer.strFullName}}</td>
-                                            <td>{{order.dteRetirementDate | date}}</td>
+                                            <td>{{order.dteDateOfAttention | date}}</td>
                                             <td>{{order.strDevice}}</td>
                                             <td>{{order.strModel}}</td>
                                             <td>{{order.strImei}}</td>

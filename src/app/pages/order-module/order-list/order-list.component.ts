@@ -1,8 +1,8 @@
 import { environment } from '../../../../environments/environment.prod';
 import { OrderService } from '../../../services/order.service';
-import { OrderrModel } from '../../../models/order';
+import { OrderModel } from '../../../models/order';
 import { Component, OnInit } from '@angular/core';
-
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -12,8 +12,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderListComponent implements OnInit {
 
-  arrOrder: OrderrModel [] = [];
+  arrOrder: OrderModel [] = [];
   active = environment.active;
+  inactive = environment.inactive;
   searchText: any;
 
   constructor(private orderService: OrderService, ) { }
@@ -32,6 +33,24 @@ export class OrderListComponent implements OnInit {
   }
 
   deleteOrder(id){
-
+    this.orderService.delOrder(id, this.inactive).then(res => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Eliminado correctamente',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      
+      this.ngOnInit();
+    }).catch(err => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Error al eliminar',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    });
   }
 }

@@ -13,51 +13,91 @@
          
                             <div class="col-md-12 mt-2">
                                 <label>Dueño</label>
-                                <select class="custom-select selectpicker form-control form-control-sm" type="text" title="Clientes"  name="idCustomer"  required>
-                                    <!-- <option *ngFor="let estatus of arrEstatus"  [ngValue]="estatus._id" > {{estatus.strNombre}} </option> -->
+                                <select [class.is-invalid]="idCustomer.invalid && idCustomer.touched" class="custom-select selectpicker form-control form-control-sm" data-live-search="true" type="text" title="Seleccione Cliente" name="idCustomer" [(ngModel)]="objOrder.idCustomer" required #idCustomer="ngModel">
+                                    <option *ngFor="let customer of arrCustomers"  [ngValue]="customer._id" > {{customer.strFullName}} </option>
                                 </select>
+                                <div class="invalid-feedback" *ngIf="idCustomer.errors?.required">
+                                    <small>
+                                        Por favor, seleccione una opción.
+                                    </small>
+                                </div>
                             </div>
 
                             <div class="col-md-4 mt-2">
                                 <label>Dispositivo</label>
-                                <input type="dispositivo" class="form-control" id="inputDispositivo">
+                                <input [class.is-invalid]="strDevice.invalid && strDevice.touched" class="form-control form-control-sm" type="text " name="strDevice" [(ngModel)]="objOrder.strDevice" required #strDevice="ngModel">
+                                <div class="invalid-feedback" *ngIf="strDevice.errors?.required">
+                                    <small>
+                                        Por favor, ingrese que dispositivo es.
+                                    </small>
+                                </div>
                             </div>
 
                             <div class="col-md-4 mt-2">
                                 <label>Modelo</label>
-                                <input type="modelo" class="form-control" id="inputModelo">
+                                <input [class.is-invalid]="strModel.invalid && strModel.touched" class="form-control form-control-sm" type="text " name="strModel" [(ngModel)]="objOrder.strModel" required #strModel="ngModel">
+                                <div class="invalid-feedback" *ngIf="strModel.errors?.required">
+                                    <small>
+                                        Por favor, ingrese el modelo de celular.
+                                    </small>
+                                </div>
                             </div>
 
                             <div class="col-md-4 mt-2">
                                 <label>Color</label>
-                                <input type="colors" class="form-control" id="inputColor">
+                                <input [class.is-invalid]="strColor.invalid && strColor.touched" class="form-control form-control-sm" type="text " name="strColor" [(ngModel)]="objOrder.strColor" required #strColor="ngModel">
+                                <div class="invalid-feedback" *ngIf="strColor.errors?.required">
+                                    <small>
+                                        Por favor, ingrese un color.
+                                    </small>
+                                </div>
                             </div>
 
                             <div class="col-md-4 mt-2">
                                 <label>Fecha de atención</label>
-                                <input type="date" name="bday" max="3000-12-31" 
-                                    min="1000-01-01" class="form-control">
+                                <input [class.is-invalid]="dteDateOfAttention.invalid && dteDateOfAttention.touched" class="form-control form-control-sm" type="date" max="3000-12-31" min="1000-01-01" name="dteDateOfAttention" [(ngModel)]="objOrder.dteDateOfAttention" required #dteDateOfAttention="ngModel">
+                                <div class="invalid-feedback" *ngIf="dteDateOfAttention.errors?.required">
+                                    <small>
+                                        Por favor, ingrese la fecha de atención.
+                                    </small>
+                                </div>
                             </div>
-                            
+                           
                             <div class="col-md-4 mt-2">
                                 <label>IMEI</label>
-                                <input type="Imei" class="form-control" id="inputImei">
+                                <input [class.is-invalid]="strImei.invalid && strImei.touched" class="form-control form-control-sm" type="text " name="strImei" [(ngModel)]="objOrder.strImei" required #strImei="ngModel">
+                                <div class="invalid-feedback" *ngIf="strImei.errors?.required">
+                                    <small>
+                                        Por favor, ingrese el núemero IMEI.
+                                    </small>
+                                </div>
                             </div>
 
                             <div class="col-md-4 mt-2">
                                 <label> $ Monto</label>
-                                <input type="Monto" class="form-control" id="inputMonto">
+                                <input [class.is-invalid]="strAmountPayable.invalid && strAmountPayable.touched" class="form-control form-control-sm" type="text " name="strAmountPayable" [(ngModel)]="objOrder.strAmountPayable" required #strAmountPayable="ngModel">
+                                <div class="invalid-feedback" *ngIf="strAmountPayable.errors?.required">
+                                    <small>
+                                        Por favor, ingrese el monto que se pagó.
+                                    </small>
+                                </div>
                             </div>                                                        
-
+                            
                             <div class="col-md-12 mt-2">
                                 <label>Trabajo a realizar</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea [class.is-invalid]="strWorkToDo.invalid && strWorkToDo.touched" class="form-control form-control-sm" rows="3" placeholder="Observaciones" name="strWorkToDo" [(ngModel)]="objOrder.strWorkToDo" required #strWorkToDo="ngModel"></textarea>
+                                <div class="invalid-feedback" *ngIf="strWorkToDo.errors?.required">
+                                    <small>
+                                        Por favor, ingrese la descripción del problema del dispositivo.
+                                    </small>
+                                </div>
                             </div>                 
                         </div>
+                        
                         <div class="container ml-2 mt-2 mb-5">
                             <div class="row">
                                 <div class="col-12 col-md-6 mt-1">          
-                                        <button type="sumbit" class="btn btn-sm btn-block btn-primary float-right">Registrar</button>                               
+                                        <button [disabled]="forma.invalid" type="sumbit" class="btn btn-sm btn-block btn-primary float-right">Registrar</button>                               
                                 </div>
                                 <div class="col-12 col-md-6 mt-1">
                                     <button [routerLink]="['/order-list']" type="sumbit" class="btn btn-sm btn-block btn-danger float-left">Volver</button>

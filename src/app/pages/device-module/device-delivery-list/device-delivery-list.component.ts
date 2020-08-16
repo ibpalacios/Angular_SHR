@@ -1,3 +1,6 @@
+import { environment } from '../../../../environments/environment.prod';
+import { OrderService } from '../../../services/order.service';
+import { OrderModel } from '../../../models/order';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeviceDeliveryListComponent implements OnInit {
 
-  constructor() { }
+  arrOrder: OrderModel[] =[];
+  active = environment.active;
+  searchText: any;
+
+  constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
+    this.getOrder();
   }
 
+  getOrder(){
+    this.orderService.getOrder(this.active).then((res: any) => {
+      this.arrOrder = res.cnt;
+    }).catch(err => {
+      console.log(err);
+    });
+  }
 }

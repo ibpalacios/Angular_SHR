@@ -1,4 +1,4 @@
-<h2 class="text-center text-dark m-4">Lista de seguimiento de ordenes</h2>
+<h2 class="text-center text-dark m-4">Lista de Seguimientos de Ordenes</h2>
 <hr>
 
 <div class="card">
@@ -7,23 +7,8 @@
         <div class="col-md-12">
             <form>
                 <div class="row container mt-4">
-                    <div class="col-md-8 mt-2">
-                        <div>
-                         
-                            <input  class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        </div>
-                    </div>
-                     <!-- se muestra el listado con busqueda -->
-                    <div class="col-md-4 mt-2">
-                        <form>
-                            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Filtrar por estatus">
-                           
-                            <datalist id="datalistOptions">
-                                <option value="En proceso">
-                                <option value="Reparado">
-                                <option value="No reparado">
-                            </datalist>
-                        </form>
+                    <div class="col-md-12 mt-2">
+                        <input [(ngModel)]="searchText" type="text" name="searchText" class="form-control form-control-sm btn-outline-secondary ops" placeholder=" Buscar...">
                     </div>
                 </div>
 
@@ -32,68 +17,26 @@
                         <div class="row fadeIn">
                             <div class="col-12">
 
-                                <table class="table table-sm table-hover table-bordered">
-                                    <thead  class="thead-dark">
+                                <table class="table table-sm table-hover table-responsive-sm table-borderless table-responsive-sm">
+                                    <thead>
                                         <tr>
-                                            <th class="align-middle">NO. ORDEN</th>
-                                            <th class="align-middle">DUEÑO</th>
-                                            <th class="align-middle">ESTATUS</th>
-                                            <th class="align-middle">FECHA DE RECIBIDO</th>
-                                            <th class="align-middle">FECHA DE ENTREGA</th>
-                                            <th class="align-middle">DETALLES</th>
+                                            <th>CLIENTE</th>
+                                            <th>ESTATUS</th>
+                                            <th>FECHA DE ATENCÓN</th>
+                                            <th>DETALLES</th>
                                         </tr>
                                     </thead>
-
-                                    <!-- SE MUESTRA CUANDO HAY REGISTROS -->
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Juan Verdoza</td>
-                                            <td>En proceso</td>
-                                            <td>15-07-20</td>
-                                            <td>30-07-20</td>                                            
+                                        <tr *ngFor="let order of arrOrder | filter:searchText">
+                                            <td>{{order.idCustomer.strFullName}}</td>
+                                            <td> {{order.idRepairStatus.strStatus}} </td>
+                                            <td>{{order.dteDateOfAttention}}</td>
                                             <td>
-                                                <button type="button" class="btn btn-danger btn-xs btn-block">Más</button>
+                                                <button [routerLink]="['/order-tracking-operation', order._id]" type="submit" class="btn btn-sm btn-block btn-primary">Mas...</button>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jose Alfredo</td>
-                                            <td>Reparado</td>
-                                            <td>28-07-20</td>
-                                            <td>01-08-20</td>
-                                            <td>
-                                                <button type="button" class="btn btn-danger btn-xs btn-block">Más</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Maria Luisa Ruiz</td>
-                                            <td>No reparado</td>
-                                            <td>30-07-20</td>
-                                            <td>05-08-20</td>
-                                            <td>
-                                                <button type="button" class="btn btn-danger btn-xs btn-block">Más</button>
-                                            </td>
-                                        </tr>
-                                        
-                                        
                                     </tbody>
-
-                                    <!-- SE MUESTRA CUANDO NO HAY REGISTROS -->
-                                    <!-- <tbody *ngIf="careers.length &lt;= 0 && !cargando">
-                                        <tr>
-                                            <td colspan="14">
-                                                <div class="alert-dismissible text-center" style="padding: .75rem 1.25rem;">
-                                                    <h5 style="height: 100%;width: 100%;"><strong><i class="fa fa-frown-o" aria-hidden="true"></i> ¡NO HAY REGISTROS PARA MOSTRAR!</strong></h5>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody> -->
                                 </table>
-                                <!-- <div class="mt-4 float-right fadeIn ">
-                                    <pagination-controls (pageChange)="pageActual=$event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
-                                </div> -->
                             </div>
                         </div>
                     </div>
